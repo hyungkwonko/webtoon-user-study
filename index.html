@@ -7,7 +7,7 @@
   <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>웹툰 연구 실험 설명 페이지</title>
-  <base href="/webtoon-user-study/"/>
+  <!-- <base href="/webtoon-user-study/"/> -->
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -34,6 +34,8 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+  <script ttype="text/javascript" src="./static/assets/task1.js"></script>
+  <script ttype="text/javascript" src="./static/assets/task2.js"></script>
 </head>
 <body>
 
@@ -232,20 +234,32 @@
 
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-4">Task1을 위한 랜덤 캐릭터 생성</h2>
+          <h2 class="title is-4"> <button onclick="myFunction()" class="button">Task1을 위한 랜덤 캐릭터 생성</button></h2>
           <div class="content has-text-justified">
-            <p>
-              ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
-              ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
-              ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
-              ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
-              ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
-              ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
-              ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
-              ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
-            </p>
+            <!-- <span id="opt1"></span> -->
+
+            
+            <p id="run_opt1" class="myp"></p>
             <script>
-              console.log("hello");
+              const option1 = JSON.parse(JSON.stringify(task1))
+
+              function myFunction2(option1) {
+                // let arr = [];
+                let arr = "";
+
+                for (var key in option1) {
+                  if (option1.hasOwnProperty(key)) {
+                    let randomElement = option1[key][Math.floor(Math.random() * option1[key].length)];
+                    // arr.push(key + "은(는) " + randomElement + "입니다.");
+                    arr += key + "은(는) " + randomElement + "입니다.<br>";
+                  }
+                }
+                return arr
+              }
+
+              function myFunction() {
+                document.getElementById("run_opt1").innerHTML = myFunction2(option1);
+              }
             </script>
           </div>
         </div>
@@ -333,7 +347,7 @@
 
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">나는 그림 작가입니다. 무엇을 하게 되나요?</h2>
+        <h2 class="title is-2">나는 그림 작가입니다. 무엇을 하게 되나요?</h2>
         <div class="content has-text-justified">
           <p>
             We present the first method capable of photorealistically reconstructing a non-rigidly
@@ -346,7 +360,7 @@
 
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-4">태스크1: 캐릭터 디자인</h2>
+        <h2 class="title is-3">Task 1: 캐릭터 디자인</h2>
         <div class="content has-text-justified">
           <p>
             We present the first method capable of photorealistically reconstructing a non-rigidly
@@ -358,7 +372,7 @@
 
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-4">태스크2: 스케치 수정</h2>
+        <h2 class="title is-3">Task 2: 스케치 수정</h2>
         <div class="content has-text-justified">
           <p>
             We present the first method capable of photorealistically reconstructing a non-rigidly
@@ -373,9 +387,6 @@
     <!--/ Paper video. -->
   </div>    
 </section>
-
-
-
 
 
 <section class="section">
