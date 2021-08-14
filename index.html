@@ -7,7 +7,7 @@
   <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>웹툰 연구 실험 설명 페이지</title>
-  <!-- <base href="/webtoon-user-study/"/> -->
+  <base href="/webtoon-user-study/"/>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -234,7 +234,7 @@
 
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-4"> <button onclick="myFunction()" class="button">Task1을 위한 랜덤 캐릭터 생성</button></h2>
+          <h2 class="title is-4"> <button onclick="runOption1()" class="button">Task1을 위한 랜덤 캐릭터 생성</button></h2>
           <div class="content has-text-justified">
             <!-- <span id="opt1"></span> -->
 
@@ -243,22 +243,20 @@
             <script>
               const option1 = JSON.parse(JSON.stringify(task1))
 
-              function myFunction2(option1) {
-                // let arr = [];
+              function pickElement(option1) {
                 let arr = "";
 
                 for (var key in option1) {
                   if (option1.hasOwnProperty(key)) {
                     let randomElement = option1[key][Math.floor(Math.random() * option1[key].length)];
-                    // arr.push(key + "은(는) " + randomElement + "입니다.");
-                    arr += key + "은(는) " + randomElement + "입니다.<br>";
+                    arr += key + ": " + randomElement + "입니다.<br>";
                   }
                 }
                 return arr
               }
 
-              function myFunction() {
-                document.getElementById("run_opt1").innerHTML = myFunction2(option1);
+              function runOption1() {
+                document.getElementById("run_opt1").innerHTML = pickElement(option1);
               }
             </script>
           </div>
@@ -317,20 +315,30 @@
 
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-4">Task2를 위한 랜덤 수정 요청 생성</h2>
+          <h2 class="title is-4"> <button onclick="runOption2()" class="button">Task2을 위한 옵션 생성</button></h2>
           <div class="content has-text-justified">
-            <p>
-              ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
-              ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
-              ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
-              ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
-              ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
-              ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
-              ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
-              ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
-            </p>
+            <!-- <span id="opt1"></span> -->
+
+            
+            <p id="run_opt2" class="myp"></p>
             <script>
-              console.log("hello");
+              const option2 = JSON.parse(JSON.stringify(task2))
+
+              function pickElement2(option2) {
+                let arr = "";
+
+                for (var key in option2) {
+                  if (option2.hasOwnProperty(key)) {
+                    let randomElement = option2[key][Math.floor(Math.random() * option2[key].length)];
+                    arr += key + ": " + randomElement + "입니다.<br>";
+                  }
+                }
+                return arr
+              }
+
+              function runOption2() {
+                document.getElementById("run_opt2").innerHTML = pickElement2(option2);
+              }
             </script>
           </div>
         </div>
