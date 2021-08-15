@@ -7,7 +7,7 @@
   <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>웹툰 연구 실험 설명 페이지</title>
-  <!-- <base href="/webtoon-user-study/"/> -->
+  <base href="/webtoon-user-study/"/>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -234,7 +234,11 @@
 
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-4"> <button onclick="runOption1()" class="button">Task1을 위한 랜덤 캐릭터 생성</button></h2>
+          <h2 class="title is-4">
+            <button onclick="runOption1Simple()" class="button button-blue">테스트</button>
+            <button onclick="runOption1()" class="button">Task1을 위한 랜덤 캐릭터 생성</button>
+            <button onclick="copyToClipboard()" class="button button-red">복사</button>
+          </h2>
           <div class="content has-text-justified">
             <!-- <span id="opt1"></span> -->
 
@@ -244,19 +248,71 @@
               const option1 = JSON.parse(JSON.stringify(task1))
 
               function pickElement(option1) {
-                let arr = "";
 
-                for (var key in option1) {
-                  if (option1.hasOwnProperty(key)) {
-                    let randomElement = option1[key][Math.floor(Math.random() * option1[key].length)];
-                    arr += key + ": " + randomElement + "입니다.<br>";
+                let arr = "이 캐릭터의 이름은 ";
+                arr += option1["성씨"][Math.floor(Math.random() * option1["성씨"].length)]
+                let gender = option1["성별"][Math.floor(Math.random() * option1["성별"].length)]
+                if (gender == "남자") {
+                  arr += option1["남자이름"][Math.floor(Math.random() * option1["남자이름"].length)]
+                } else {
+                  arr += option1["여자이름"][Math.floor(Math.random() * option1["여자이름"].length)]
+                }
+                arr += "이고, 성별은 " + gender + "입니다.<br>"
+                arr += "나이는 " + option1["나이"][Math.floor(Math.random() * option1["나이"].length)] + "살이고, 전체적인 인상은 " + option1["전체적인느낌"][Math.floor(Math.random() * option1["전체적인느낌"].length)] + "입니다.<br>"
+                arr += "디테일한 부분의 특성은 " + option1["구체적인묘사"][Math.floor(Math.random() * option1["구체적인묘사"].length)] + "입니다.<br>"
+                arr += "직업은 " + option1["직업"][Math.floor(Math.random() * option1["직업"].length)] + "이고, " + option1["성격"][Math.floor(Math.random() * option1["성격"].length)] + " 성격입니다.<br>"
+                arr += "개인적인 특성은 " + option1["집안/트라우마/취미"][Math.floor(Math.random() * option1["집안/트라우마/취미"].length)] + " 점입니다."
+                return arr
+              }
+
+              function pickElementSimple(option1) {
+                let arr = "이 캐릭터의 이름은 ";
+                arr += option1["성씨"][Math.floor(Math.random() * option1["성씨"].length)]
+                let gender = option1["성별"][Math.floor(Math.random() * option1["성별"].length)]
+                if (gender == "남자") {
+                  arr += option1["남자이름"][Math.floor(Math.random() * option1["남자이름"].length)]
+                } else {
+                  arr += option1["여자이름"][Math.floor(Math.random() * option1["여자이름"].length)]
+                }
+                arr += "이고, 성별은 " + gender + "입니다.<br>"
+                arr += "나이는 " + option1["나이"][Math.floor(Math.random() * option1["나이"].length)] + "살이고, "
+                arr += "전체적인 인상은 " + option1["전체적인느낌"][Math.floor(Math.random() * option1["전체적인느낌"].length)] + "입니다."
+                return arr
+              }
+
+              function copyToClipboard() {
+                text = document.getElementById("run_opt1").textContent;
+
+                if (window.clipboardData && window.clipboardData.setData) {
+                  // Internet Explorer-specific code path to prevent textarea being shown while dialog is visible.
+                  return window.clipboardData.setData("Text", text);
+
+                }
+                else if (document.queryCommandSupported && document.queryCommandSupported("copy")) {
+                  var textarea = document.createElement("textarea");
+                  textarea.textContent = text;
+                  textarea.style.position = "fixed";  // Prevent scrolling to bottom of page in Microsoft Edge.
+                  document.body.appendChild(textarea);
+                  textarea.select();
+                  try {
+                    return document.execCommand("copy");  // Security exception may be thrown by some browsers.
+                  }
+                  catch (ex) {
+                      console.warn("Copy to clipboard failed.", ex);
+                    return false;
+                  }
+                  finally {
+                    document.body.removeChild(textarea);
                   }
                 }
-                return arr
               }
 
               function runOption1() {
                 document.getElementById("run_opt1").innerHTML = pickElement(option1);
+              }
+
+              function runOption1Simple() {
+                document.getElementById("run_opt1").innerHTML = pickElementSimple(option1);
               }
             </script>
           </div>
@@ -315,29 +371,39 @@
 
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-4"> <button onclick="runOption2()" class="button">Task2을 위한 옵션 생성</button></h2>
+          <h2 class="title is-4">            
+            <button onclick="runOption2Simple()" class="button button-blue">테스트</button>
+            <button onclick="runOption2()" class="button">Task2를 위한 옵션</button>
+          </h2>
           <div class="content has-text-justified">
             <!-- <span id="opt1"></span> -->
 
             
-            <p id="run_opt2" class="myp"></p>
+            <p id="run_opt2" class="myp2"></p>
             <script>
               const option2 = JSON.parse(JSON.stringify(task2))
 
               function pickElement2(option2) {
-                let arr = "";
+                let arr = "좌우 각도 수정 요청: -45도(왼쪽)에서 +45도(오른쪽)까지<br>"
+                arr += "위아래 각도 수정 요청: -30도(아래)에서 +30도(위)까지<br>"
+                arr += "표정 수정의 정도: " + option2["표정 수정의 정도"] + "<br>"
+                arr += "표정 수정의 타입: " + option2["표정 수정의 타입"] + "<br>"
+                return arr
+              }
 
-                for (var key in option2) {
-                  if (option2.hasOwnProperty(key)) {
-                    let randomElement = option2[key][Math.floor(Math.random() * option2[key].length)];
-                    arr += key + ": " + randomElement + "입니다.<br>";
-                  }
-                }
+              function pickElement2Simple(option2) {
+                let arr = "얼굴 각도에 대해 ";
+                arr += option2["좌우 각도 수정 요청"][Math.floor(Math.random() * option2["좌우 각도 수정 요청"].length)]
+                arr += " 수정 요청합니다."
                 return arr
               }
 
               function runOption2() {
                 document.getElementById("run_opt2").innerHTML = pickElement2(option2);
+              }
+
+              function runOption2Simple() {
+                document.getElementById("run_opt2").innerHTML = pickElement2Simple(option2);
               }
             </script>
           </div>

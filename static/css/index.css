@@ -167,8 +167,29 @@ body {
   font-size: 24px;
 }
 
+.button-red {
+  background-color: red; /* Green */
+}
+
+.button-blue {
+  background-color: blue; /* Green */
+}
+
 .myp {
   text-align: justify;
   letter-spacing: 1px;
-  margin-left: 100px;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+  /* margin-left: 100px; */
+}
+
+.myp2 {
+  text-align: justify;
+  letter-spacing: 1px;
+  /* border: 1px solid green; */
+  margin: 10px;
+  padding: 10px;
+  /* text-align: center; */
+  /* margin-left: 100px; */
 }
