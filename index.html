@@ -81,7 +81,6 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">WebtoonGAN은 무엇인가요?</h2>
@@ -118,9 +117,12 @@
         </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <hr>
-
+<section class="section">
+  <div class="container is-max-desktop">
+    
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-2">나는 글 작가 입니다. 무엇을 하나요?</h2>
@@ -187,7 +189,6 @@
       </div>
     </div>
 
-
     <!-- Paper video. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
@@ -205,8 +206,8 @@
         <h2 class="title is-3">캐릭터 디자인 및 스케치 수정</h2>
         <div class="content has-text-justified">
           <p>
-            We present the first method capable of photorealistically reconstructing a non-rigidly
-            deforming scene using photos/videos captured casually from mobile phones.
+            WebtoonGAN은 캐릭터 디자인 및 스케치 수정에서 협업을 하시는 글 작가님과 그림 작가님의 원활한 소통을 도울 다양한 기능들을 제공합니다.
+
           </p>
         </div>
       </div>
@@ -226,7 +227,7 @@
               would be impossible without nerfies since it would require going through a wall.
             </p>
             <video id="dollyzoom" autoplay controls muted loop height="100%">
-              <source src="https://github.com/hyungkwonko/webtoon-user-study/blob/main/static/assets/1.random_generate.mp4" type="video/mp4">
+              <source src="./static/assets/2.noise_add.mp4" type="video/mp4">
             </video>
           </div>
         </div>
@@ -234,7 +235,7 @@
   
         <!-- Matting. -->
         <div class="column">
-          <h2 class="title is-3">노이즈 추가</h2>
+          <h2 class="title is-3">랜덤 디테일 수정</h2>
           <div class="columns is-centered">
             <div class="column content">
               <p>
@@ -270,7 +271,7 @@
   
         <!-- Matting. -->
         <div class="column">
-          <h2 class="title is-3">글로벌 믹싱</h2>
+          <h2 class="title is-3">텍스트 입력 및 내보내기</h2>
           <div class="columns is-centered">
             <div class="column content">
               <p>
@@ -409,43 +410,59 @@
         </div>
       </div>
     </div> -->
-      
+  </div>    
+</section>
 
-    <hr>
-
-
+<section>
+  <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-2">나는 그림 작가입니다. 무엇을 하게 되나요?</h2>
+        <h2 class="title is-2">나는 그림 작가 입니다. 무엇을 하나요?</h2>
         <div class="content has-text-justified">
           <p>
-            We present the first method capable of photorealistically reconstructing a non-rigidly
-            deforming scene using photos/videos captured casually from mobile phones.
+            두가지 실험을 진행합니다 (글 작가님과 같음).
+            <ol>
+              <li>기존 방법대로 그림작가와 의사소통하여 하나의 캐릭터를 만들고 한 컷을 채우게 됩니다.</li>
+              <li>저희 시스템을 사용하여 그림작가와 의사소통하여 하나의 캐릭터를 만들고 한 컷을 채우게 됩니다.</li>
+            </ol>
           </p>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Task 1: 캐릭터 디자인</h2>
-        <div class="content has-text-justified">
+          <hr>
           <p>
-            We present the first method capable of photorealistically reconstructing a non-rigidly
-            deforming scene using photos/videos captured casually from mobile phones.
+            <b>실험 시작 전날: </b> 사전 인터뷰 질문지를 전달 받습니다. 실험 당일 만나기 전까지 완료하여 연구원에게 전달합니다
           </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Task 2: 스케치 수정</h2>
-        <div class="content has-text-justified">
           <p>
-            We present the first method capable of photorealistically reconstructing a non-rigidly
-            deforming scene using photos/videos captured casually from mobile phones.
+            <b>실험 당일 만난 뒤</b>
+            <ol>
+              <li>경력과 본인의 장르에 대한 정보를 전달합니다.</li>
+              <li>전체적인 흐름에 대한 설명을 듣습니다.</li>
+              <li>제공하는 iPad의 ClipStudio에 적응하는 시간을 갖습니다. (10분)</li>
+            </ol>
+          </p>
+          <p>
+            <b>실험 당일 기존 방법 실험</b>
+            <ol>
+              <li>스토리, 장르, 캐릭터 설정에 대해 설명을 듣습니다. (3분)</li>
+              <li>글 작가가 전달하는 구글/핀터레스트로 레퍼런스 이미지 <b><u>3장</u></b>과 글 설명을 기반으로 캐릭터를 그립니다. (9분)</li>
+              <li>그린 그림을 글 작가에게 <a href="https://open.kakao.com/o/gErnrkud">오픈카톡</a>으로 넘깁니다. (1분)</li>
+              <li>구글/핀터레스트 이미지와 글로 구성된 글 작가의 수정요청이 들어오면 그림을 수정하여 다시 <a href="https://open.kakao.com/o/gErnrkud">오픈카톡</a>으로 전달합니다. (3분)</li>
+              <li>위 작업은 여러번 글 작가 마음에 들때까지 반복합니다. (40분 한정)</li>
+            </ol>
+          </p>
+          <p>
+            <b>실험 당일 WebtoonGAN 방법 실험</b>
+            <ol>
+              <li>스토리, 장르, 캐릭터 설정에 대해 설명을 듣습니다. (3분)</li>
+              <li>글 작가가 전달하는 구글/핀터레스트로 레퍼런스 이미지 <b><u>3장</u></b>과 글 설명을 기반으로 캐릭터를 그립니다. (9분)</li>
+              <li>그린 그림을 글 작가에게 <a href="https://open.kakao.com/o/gErnrkud">오픈카톡</a>으로 넘깁니다. (1분)</li>
+              <li>WebtoonGAN의 피드백으로 구성된 글 작가의 수정요청이 들어오면 그림을 수정하여 다시 <a href="https://open.kakao.com/o/gErnrkud">오픈카톡</a>으로 전달합니다. (3분)</li>
+              <li>위 작업은 여러번 글 작가 마음에 들때까지 반복합니다. (40분 한정)</li>
+            </ol>  
+          </p>
+          <p>
+            <b>두가지 실험이 끝난 뒤</b>
+            <ol>
+              <li>종료 인터뷰를 진행합니다. (10분)</li>
+            </ol>
           </p>
         </div>
       </div>
